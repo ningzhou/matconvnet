@@ -286,7 +286,9 @@ if opts.enableCudnn
   switch arch
     case 'win64', opts.cudnnLibDir = fullfile(opts.cudnnRoot, 'lib', 'x64') ;
     case 'maci64', opts.cudnnLibDir = fullfile(opts.cudnnRoot, 'lib') ;
-    case 'glnxa64', opts.cudnnLibDir = fullfile(opts.cudnnRoot, 'lib64') ;
+      %case 'glnxa64', opts.cudnnLibDir = fullfile(opts.cudnnRoot, 'lib64') ;
+      %ubuntu 16.04 with apt-get installed cuda toolkit
+    case 'glnxa64', opts.cudnnLibDir = fullfile(opts.cudnnRoot, '/usr/lib/x86_64-linux-gnu') ;
     otherwise, error('Unsupported architecture ''%s''.', arch) ;
   end
 end
